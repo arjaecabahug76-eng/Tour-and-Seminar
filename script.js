@@ -1,27 +1,52 @@
 // ==========================================
-// SEMINARS & WEBINARS SLIDER
+// PAGE SWITCHING ROUTER
+// ==========================================
+function switchPage(pageId) {
+  // Update Body Theme Class
+  document.body.className = `page-${pageId}`;
+
+  // Hide/Show Section Pages
+  const sections = document.querySelectorAll('.page-section');
+  sections.forEach(sec => sec.classList.remove('active'));
+
+  const targetSection = document.getElementById(`page-${pageId}`);
+  if (targetSection) {
+    targetSection.classList.add('active');
+  }
+
+  // Update Navigation Active State
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    if (link.getAttribute('data-page') === pageId) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
+
+  // Re-trigger Carousel Adjustments
+  if (pageId === 'certificates') updateCertCarousel();
+  if (pageId === 'badges') updateBadgeCarousel();
+}
+
+// ==========================================
+// SEMINARS SLIDER LOGIC
 // ==========================================
 let currentSlide = 1;
 const totalSlides = 7;
 
 function showSlide(index) {
-  const slides = document.querySelectorAll('.seminar-slide');
-  
   if (index > totalSlides) currentSlide = 1;
   if (index < 1) currentSlide = totalSlides;
 
+  const slides = document.querySelectorAll('.seminar-slide');
   slides.forEach(slide => slide.classList.remove('active'));
 
   const activeSlide = document.querySelector(`.seminar-slide[data-slide="${currentSlide}"]`);
-  if (activeSlide) {
-    activeSlide.classList.add('active');
-  }
+  if (activeSlide) activeSlide.classList.add('active');
 
-  const currentFormatted = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
-  const totalFormatted = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
-
-  document.getElementById('currentSlideNum').textContent = currentFormatted;
-  document.getElementById('totalSlidesNum').textContent = totalFormatted;
+  document.getElementById('currentSlideNum').textContent = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
+  document.getElementById('totalSlidesNum').textContent = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
 }
 
 function changeSlide(direction) {
@@ -29,22 +54,18 @@ function changeSlide(direction) {
   showSlide(currentSlide);
 }
 
-
 // ==========================================
-// GENERIC CAROUSEL LOGIC (Certificates & Badges)
+// CERTIFICATE CAROUSEL LOGIC
 // ==========================================
-
-// Certificates Carousel State
 let currentCertIndex = 0;
 
 function initCertCarousel() {
-  const certCards = document.querySelectorAll('#certificates .badge-item-card');
+  const cards = document.querySelectorAll('#page-certificates .badge-item-card');
   const dotsContainer = document.getElementById('certDots');
   if (!dotsContainer) return;
-  
   dotsContainer.innerHTML = '';
 
-  certCards.forEach((_, idx) => {
+  cards.forEach((_, idx) => {
     const dot = document.createElement('div');
     dot.classList.add('dot');
     if (idx === 0) dot.classList.add('active');
@@ -54,12 +75,11 @@ function initCertCarousel() {
     });
     dotsContainer.appendChild(dot);
   });
-
   updateCertCarousel();
 }
 
 function updateCertCarousel() {
-  const cards = document.querySelectorAll('#certificates .badge-item-card');
+  const cards = document.querySelectorAll('#page-certificates .badge-item-card');
   const dots = document.querySelectorAll('#certDots .dot');
   const total = cards.length;
   if (total === 0) return;
@@ -68,45 +88,38 @@ function updateCertCarousel() {
   if (currentCertIndex < 0) currentCertIndex = total - 1;
 
   cards.forEach((card, idx) => {
-    card.classList.remove('active', 'prev', 'next', 'hidden');
-
+    card.classList.remove('active', 'prev', 'next');
     if (idx === currentCertIndex) {
       card.classList.add('active');
     } else if (idx === (currentCertIndex - 1 + total) % total) {
       card.classList.add('prev');
     } else if (idx === (currentCertIndex + 1) % total) {
       card.classList.add('next');
-    } else {
-      card.classList.add('hidden');
     }
   });
 
   dots.forEach((dot, idx) => {
-    if (idx === currentCertIndex) {
-      dot.classList.add('active');
-    } else {
-      dot.classList.remove('active');
-    }
+    dot.classList.toggle('active', idx === currentCertIndex);
   });
 }
 
-function changeCertSlide(direction) {
-  currentCertIndex += direction;
+function changeCertSlide(dir) {
+  currentCertIndex += dir;
   updateCertCarousel();
 }
 
-
-// NetAcad Badges Carousel State
+// ==========================================
+// NETACAD BADGES CAROUSEL LOGIC
+// ==========================================
 let currentBadgeIndex = 0;
 
 function initBadgeCarousel() {
-  const badgeCards = document.querySelectorAll('#badges .badge-item-card');
+  const cards = document.querySelectorAll('#page-badges .badge-item-card');
   const dotsContainer = document.getElementById('badgeDots');
   if (!dotsContainer) return;
-
   dotsContainer.innerHTML = '';
 
-  badgeCards.forEach((_, idx) => {
+  cards.forEach((_, idx) => {
     const dot = document.createElement('div');
     dot.classList.add('dot');
     if (idx === 0) dot.classList.add('active');
@@ -116,12 +129,11 @@ function initBadgeCarousel() {
     });
     dotsContainer.appendChild(dot);
   });
-
   updateBadgeCarousel();
 }
 
 function updateBadgeCarousel() {
-  const cards = document.querySelectorAll('#badges .badge-item-card');
+  const cards = document.querySelectorAll('#page-badges .badge-item-card');
   const dots = document.querySelectorAll('#badgeDots .dot');
   const total = cards.length;
   if (total === 0) return;
@@ -130,73 +142,58 @@ function updateBadgeCarousel() {
   if (currentBadgeIndex < 0) currentBadgeIndex = total - 1;
 
   cards.forEach((card, idx) => {
-    card.classList.remove('active', 'prev', 'next', 'hidden');
-
+    card.classList.remove('active', 'prev', 'next');
     if (idx === currentBadgeIndex) {
       card.classList.add('active');
     } else if (idx === (currentBadgeIndex - 1 + total) % total) {
       card.classList.add('prev');
     } else if (idx === (currentBadgeIndex + 1) % total) {
       card.classList.add('next');
-    } else {
-      card.classList.add('hidden');
     }
   });
 
   dots.forEach((dot, idx) => {
-    if (idx === currentBadgeIndex) {
-      dot.classList.add('active');
-    } else {
-      dot.classList.remove('active');
-    }
+    dot.classList.toggle('active', idx === currentBadgeIndex);
   });
 }
 
-function changeBadgeSlide(direction) {
-  currentBadgeIndex += direction;
+function changeBadgeSlide(dir) {
+  currentBadgeIndex += dir;
   updateBadgeCarousel();
 }
 
-
-// Initialization
-document.addEventListener('DOMContentLoaded', () => {
-  showSlide(currentSlide);
-  initCertCarousel();
-  initBadgeCarousel();
-});
 // ==========================================
-// PROOF LIGHTBOX GALLERY LOGIC
+// LIGHTBOX GALLERY LOGIC
 // ==========================================
 function openProofModal(imagesArray) {
   const modal = document.getElementById('proofModal');
   const gallery = document.getElementById('proofGallery');
-  
-  // Clear previous images
   gallery.innerHTML = '';
 
-  // Append new images
-  imagesArray.forEach((imgSrc) => {
+  imagesArray.forEach(imgSrc => {
     const img = document.createElement('img');
     img.src = imgSrc;
-    img.alt = 'Proof Documentation';
     gallery.appendChild(img);
   });
 
-  // Display modal
   modal.classList.add('active');
-  document.body.style.overflow = 'hidden'; // Stop background scrolling
+  document.body.style.overflow = 'hidden';
 }
 
 function closeProofModal() {
   const modal = document.getElementById('proofModal');
   modal.classList.remove('active');
-  document.body.style.overflow = 'auto'; // Re-enable background scrolling
+  document.body.style.overflow = 'auto';
 }
 
-// Close modal when clicking outside of modal-content
-window.addEventListener('click', (event) => {
+window.addEventListener('click', (e) => {
   const modal = document.getElementById('proofModal');
-  if (event.target === modal) {
-    closeProofModal();
-  }
+  if (e.target === modal) closeProofModal();
+});
+
+// Initialize Setup
+document.addEventListener('DOMContentLoaded', () => {
+  showSlide(currentSlide);
+  initCertCarousel();
+  initBadgeCarousel();
 });
