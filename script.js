@@ -1,11 +1,33 @@
 // ==========================================
+// INTRO SCREEN & TYPEWRITER ANIMATION
+// ==========================================
+const typewriterText = "BSIT Student • Seminars & Certification Portfolio";
+let typeIndex = 0;
+
+function typeWriter() {
+  const element = document.querySelector(".typewriter-text");
+  if (element && typeIndex < typewriterText.length) {
+    element.textContent += typewriterText.charAt(typeIndex);
+    typeIndex++;
+    setTimeout(typeWriter, 40);
+  }
+}
+
+function enterPortfolio() {
+  const splash = document.getElementById("intro-splash");
+  if (splash) {
+    splash.classList.add("fade-out");
+  }
+}
+
+// ==========================================
 // PAGE SWITCHING ROUTER
 // ==========================================
 function switchPage(pageId) {
-  // Update Body CSS Class for Background Theme
+  // Update Body Theme Accent Class
   document.body.className = `page-${pageId}`;
 
-  // Toggle Visibility of Sections
+  // Toggle Section Visibility
   const sections = document.querySelectorAll('.page-section');
   sections.forEach(sec => sec.classList.remove('active'));
 
@@ -14,7 +36,7 @@ function switchPage(pageId) {
     targetSection.classList.add('active');
   }
 
-  // Update Navigation Bar Buttons
+  // Update Navigation Active State
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     if (link.getAttribute('data-page') === pageId) {
@@ -24,12 +46,12 @@ function switchPage(pageId) {
     }
   });
 
-  // Scroll View to Top
+  // Smooth Scroll View to Top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ==========================================
-// SEMINARS SLIDER LOGIC
+// SEMINAR SLIDER LOGIC
 // ==========================================
 let currentSlide = 1;
 const totalSlides = 7;
@@ -54,7 +76,7 @@ function changeSlide(direction) {
 }
 
 // ==========================================
-// PROOF GALLERY LIGHTBOX
+// PROOF LIGHTBOX MODAL
 // ==========================================
 function openProofModal(imagesArray) {
   const modal = document.getElementById('proofModal');
@@ -85,4 +107,5 @@ window.addEventListener('click', (e) => {
 // Initial Setup Execution
 document.addEventListener('DOMContentLoaded', () => {
   showSlide(currentSlide);
+  setTimeout(typeWriter, 500);
 });
