@@ -2,10 +2,10 @@
 // PAGE SWITCHING ROUTER
 // ==========================================
 function switchPage(pageId) {
-  // Update Body Theme Class
+  // Update Body CSS Class for Background Theme
   document.body.className = `page-${pageId}`;
 
-  // Hide/Show Section Pages
+  // Toggle Visibility of Sections
   const sections = document.querySelectorAll('.page-section');
   sections.forEach(sec => sec.classList.remove('active'));
 
@@ -14,7 +14,7 @@ function switchPage(pageId) {
     targetSection.classList.add('active');
   }
 
-  // Update Navigation Active State
+  // Update Navigation Bar Buttons
   const navLinks = document.querySelectorAll('.nav-link');
   navLinks.forEach(link => {
     if (link.getAttribute('data-page') === pageId) {
@@ -24,9 +24,8 @@ function switchPage(pageId) {
     }
   });
 
-  // Re-trigger Carousel Adjustments
-  if (pageId === 'certificates') updateCertCarousel();
-  if (pageId === 'badges') updateBadgeCarousel();
+  // Scroll View to Top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ==========================================
@@ -55,115 +54,7 @@ function changeSlide(direction) {
 }
 
 // ==========================================
-// CERTIFICATE CAROUSEL LOGIC
-// ==========================================
-let currentCertIndex = 0;
-
-function initCertCarousel() {
-  const cards = document.querySelectorAll('#page-certificates .badge-item-card');
-  const dotsContainer = document.getElementById('certDots');
-  if (!dotsContainer) return;
-  dotsContainer.innerHTML = '';
-
-  cards.forEach((_, idx) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (idx === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      currentCertIndex = idx;
-      updateCertCarousel();
-    });
-    dotsContainer.appendChild(dot);
-  });
-  updateCertCarousel();
-}
-
-function updateCertCarousel() {
-  const cards = document.querySelectorAll('#page-certificates .badge-item-card');
-  const dots = document.querySelectorAll('#certDots .dot');
-  const total = cards.length;
-  if (total === 0) return;
-
-  if (currentCertIndex >= total) currentCertIndex = 0;
-  if (currentCertIndex < 0) currentCertIndex = total - 1;
-
-  cards.forEach((card, idx) => {
-    card.classList.remove('active', 'prev', 'next');
-    if (idx === currentCertIndex) {
-      card.classList.add('active');
-    } else if (idx === (currentCertIndex - 1 + total) % total) {
-      card.classList.add('prev');
-    } else if (idx === (currentCertIndex + 1) % total) {
-      card.classList.add('next');
-    }
-  });
-
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === currentCertIndex);
-  });
-}
-
-function changeCertSlide(dir) {
-  currentCertIndex += dir;
-  updateCertCarousel();
-}
-
-// ==========================================
-// NETACAD BADGES CAROUSEL LOGIC
-// ==========================================
-let currentBadgeIndex = 0;
-
-function initBadgeCarousel() {
-  const cards = document.querySelectorAll('#page-badges .badge-item-card');
-  const dotsContainer = document.getElementById('badgeDots');
-  if (!dotsContainer) return;
-  dotsContainer.innerHTML = '';
-
-  cards.forEach((_, idx) => {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (idx === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      currentBadgeIndex = idx;
-      updateBadgeCarousel();
-    });
-    dotsContainer.appendChild(dot);
-  });
-  updateBadgeCarousel();
-}
-
-function updateBadgeCarousel() {
-  const cards = document.querySelectorAll('#page-badges .badge-item-card');
-  const dots = document.querySelectorAll('#badgeDots .dot');
-  const total = cards.length;
-  if (total === 0) return;
-
-  if (currentBadgeIndex >= total) currentBadgeIndex = 0;
-  if (currentBadgeIndex < 0) currentBadgeIndex = total - 1;
-
-  cards.forEach((card, idx) => {
-    card.classList.remove('active', 'prev', 'next');
-    if (idx === currentBadgeIndex) {
-      card.classList.add('active');
-    } else if (idx === (currentBadgeIndex - 1 + total) % total) {
-      card.classList.add('prev');
-    } else if (idx === (currentBadgeIndex + 1) % total) {
-      card.classList.add('next');
-    }
-  });
-
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === currentBadgeIndex);
-  });
-}
-
-function changeBadgeSlide(dir) {
-  currentBadgeIndex += dir;
-  updateBadgeCarousel();
-}
-
-// ==========================================
-// LIGHTBOX GALLERY LOGIC
+// PROOF GALLERY LIGHTBOX
 // ==========================================
 function openProofModal(imagesArray) {
   const modal = document.getElementById('proofModal');
@@ -191,9 +82,7 @@ window.addEventListener('click', (e) => {
   if (e.target === modal) closeProofModal();
 });
 
-// Initialize Setup
+// Initial Setup Execution
 document.addEventListener('DOMContentLoaded', () => {
   showSlide(currentSlide);
-  initCertCarousel();
-  initBadgeCarousel();
 });
