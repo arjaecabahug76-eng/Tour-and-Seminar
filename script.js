@@ -1,5 +1,5 @@
 // ==========================================
-// INTRO SCREEN & TYPEWRITER ANIMATION (UNCHANGED)
+// INTRO SCREEN & TYPEWRITER ANIMATION
 // ==========================================
 const typewriterText = "BSIT Student • Seminars & Certification Portfolio";
 let typeIndex = 0;
@@ -51,48 +51,28 @@ function switchPage(pageId) {
 }
 
 // ==========================================
-// MULTI-SLIDER ROUTER (SEMINARS, CERTS, BADGES)
+// SEMINAR SLIDER LOGIC
 // ==========================================
-const sliderState = {
-  seminar: { current: 1, total: 7 },
-  cert: { current: 1, total: 7 },
-  badge: { current: 1, total: 7 }
-};
+let currentSlide = 1;
+const totalSlides = 7;
 
-function renderSlide(type) {
-  const state = sliderState[type];
+function showSlide(index) {
+  if (index > totalSlides) currentSlide = 1;
+  if (index < 1) currentSlide = totalSlides;
 
-  if (state.current > state.total) state.current = 1;
-  if (state.current < 1) state.current = state.total;
+  const slides = document.querySelectorAll('.seminar-slide');
+  slides.forEach(slide => slide.classList.remove('active'));
 
-  // Hide all items for this type
-  const slides = document.querySelectorAll(`.${type}-slide`);
-  slides.forEach(s => s.classList.remove('active'));
+  const activeSlide = document.querySelector(`.seminar-slide[data-slide="${currentSlide}"]`);
+  if (activeSlide) activeSlide.classList.add('active');
 
-  // Show Active Slide
-  const activeSlide = document.querySelector(`.${type}-slide[data-${type}="${state.current}"]`);
-  if (activeSlide) {
-    activeSlide.classList.add('active');
-  }
-
-  // Format Counter Label with Leading Zero
-  const currentFormatted = state.current < 10 ? `0${state.current}` : state.current;
-  const totalFormatted = state.total < 10 ? `0${state.total}` : state.total;
-
-  const currentLabel = document.getElementById(`current${capitalize(type)}Num`);
-  const totalLabel = document.getElementById(`total${capitalize(type)}Num`);
-
-  if (currentLabel) currentLabel.textContent = currentFormatted;
-  if (totalLabel) totalLabel.textContent = totalFormatted;
+  document.getElementById('currentSlideNum').textContent = currentSlide < 10 ? `0${currentSlide}` : currentSlide;
+  document.getElementById('totalSlidesNum').textContent = totalSlides < 10 ? `0${totalSlides}` : totalSlides;
 }
 
-function changeSlide(type, direction) {
-  sliderState[type].current += direction;
-  renderSlide(type);
-}
-
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+function changeSlide(direction) {
+  currentSlide += direction;
+  showSlide(currentSlide);
 }
 
 // ==========================================
@@ -126,8 +106,6 @@ window.addEventListener('click', (e) => {
 
 // Initial Setup Execution
 document.addEventListener('DOMContentLoaded', () => {
-  renderSlide('seminar');
-  renderSlide('cert');
-  renderSlide('badge');
+  showSlide(currentSlide);
   setTimeout(typeWriter, 500);
 });
