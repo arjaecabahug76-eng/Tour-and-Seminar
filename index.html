@@ -33,39 +33,44 @@
 
   <!-- TOP GLOBAL HEADER & NAVIGATION BAR -->
   <header class="top-navbar">
-    <div class="nav-branding">
-      <div class="branding-text">
-        <span class="brand-title">PARTIDO STATE UNIVERSITY</span>
-        <span class="brand-subtitle">Department of Computational Sciences</span>
+    <div class="header-container">
+      
+      <!-- Logos Row -->
+      <div class="center-logo-group">
+        <img src="1.png" alt="PSU Logo" class="mini-logo">
+        <img src="2.png" alt="CECS Logo" class="mini-logo">
+        <img src="3.png" alt="BSIT Logo" class="mini-logo">
       </div>
-    </div>
 
-    <!-- Centered Logos -->
-    <div class="center-logo-group">
-      <img src="1.png" alt="PSU Logo" class="mini-logo">
-      <img src="2.png" alt="CECS Logo" class="mini-logo">
-      <img src="3.png" alt="BSIT Logo" class="mini-logo">
-    </div>
+      <!-- Branding Text Below Logos -->
+      <div class="nav-branding">
+        <div class="branding-text">
+          <span class="brand-title">PARTIDO STATE UNIVERSITY</span>
+          <span class="brand-subtitle">Department of Computational Sciences</span>
+        </div>
+      </div>
 
-    <!-- Top Navigation Links -->
-    <nav class="top-nav-menu">
-      <button class="nav-link active" onclick="switchPage('hero')" data-page="hero">
-        <span class="nav-icon">01</span>
-        <span class="nav-label">Profile</span>
-      </button>
-      <button class="nav-link" onclick="switchPage('webinars')" data-page="webinars">
-        <span class="nav-icon">02</span>
-        <span class="nav-label">Seminars</span>
-      </button>
-      <button class="nav-link" onclick="switchPage('certificates')" data-page="certificates">
-        <span class="nav-icon">03</span>
-        <span class="nav-label">Certificates</span>
-      </button>
-      <button class="nav-link" onclick="switchPage('badges')" data-page="badges">
-        <span class="nav-icon">04</span>
-        <span class="nav-label">Badges</span>
-      </button>
-    </nav>
+      <!-- Navigation Links Below Branding -->
+      <nav class="top-nav-menu">
+        <button class="nav-link active" onclick="switchPage('hero')" data-page="hero">
+          <span class="nav-icon">01</span>
+          <span class="nav-label">Profile</span>
+        </button>
+        <button class="nav-link" onclick="switchPage('webinars')" data-page="webinars">
+          <span class="nav-icon">02</span>
+          <span class="nav-label">Seminars</span>
+        </button>
+        <button class="nav-link" onclick="switchPage('certificates')" data-page="certificates">
+          <span class="nav-icon">03</span>
+          <span class="nav-label">Certificates</span>
+        </button>
+        <button class="nav-link" onclick="switchPage('badges')" data-page="badges">
+          <span class="nav-icon">04</span>
+          <span class="nav-label">Badges</span>
+        </button>
+      </nav>
+
+    </div>
   </header>
 
   <!-- Main Page View Container -->
@@ -123,7 +128,7 @@
         <!-- Dynamic Profile Picture with Hover Switch -->
         <div class="profile-avatar-wrapper">
           <div class="profile-avatar-frame">
-            <img src="Arjae.jpg" alt="Arjae Cabahug" class="profile-img" id="profileImage" onmouseover="hoverProfileImg()" onmouseout="resetProfileImg()">
+            <img src="Arjae.jpg" alt="Arjae Cabahug" class="profile-img" id="profileImage" onmouseenter="hoverProfileImg()" onmouseleave="resetProfileImg()">
             <div class="avatar-shimmer"></div>
             <div class="avatar-scanline"></div>
           </div>
@@ -502,7 +507,7 @@
           </div>
         </div>
 
-        <!-- NEWLY ADDED CARD: Cert 8 -->
+        <!-- Cert 8 -->
         <div class="grid-card cert-card">
           <div class="card-header">
             <span class="code-tag">CERT_08</span>
