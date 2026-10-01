@@ -21,19 +21,26 @@ function enterPortfolio() {
 }
 
 // ==========================================
-// PROFILE PHOTO HOVER SWITCH LOGIC
+// PROFILE PHOTO HOVER SWITCH LOGIC & PRELOAD
 // ==========================================
+const primaryImgSrc = 'Arjae.jpg';
+const hoverImgSrc = 'Arjae-hover.jpg';
+
+// Preload hover image to prevent delay or flickering
+const preloadedHoverImg = new Image();
+preloadedHoverImg.src = hoverImgSrc;
+
 function hoverProfileImg() {
   const img = document.getElementById('profileImage');
   if (img) {
-    img.src = 'Arjae-hover.jpg'; // Path to secondary hover photo
+    img.src = hoverImgSrc;
   }
 }
 
 function resetProfileImg() {
   const img = document.getElementById('profileImage');
   if (img) {
-    img.src = 'Arjae.jpg'; // Path back to original photo
+    img.src = primaryImgSrc;
   }
 }
 
