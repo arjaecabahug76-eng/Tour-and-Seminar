@@ -24,7 +24,7 @@ function enterPortfolio() {
 // PROFILE PHOTO HOVER SWITCH LOGIC & PRELOAD
 // ==========================================
 const primaryImgSrc = 'Arjae.jpg';
-const hoverImgSrc = 'Arjae-hover.jpg';
+const hoverImgSrc = 'CAB.jpg';
 
 // Preload hover image to prevent delay or flickering
 const preloadedHoverImg = new Image();
