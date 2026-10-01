@@ -713,36 +713,3 @@ body.page-badges .orb-2 { background: #7c3aed; }
   .page-container { margin-top: 210px; }
   .top-nav-menu { flex-wrap: wrap; }
 }
-
-.profile-container {
-  position: relative;
-  width: 150px;  /* Set your preferred image width */
-  height: 150px; /* Set your preferred image height */
-  border-radius: 50%; /* Makes the profile image circular */
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.profile-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Keeps image proportions intact */
-  transition: opacity 0.3s ease-in-out; /* Smooth transition speed */
-}
-
-/* Base state for the hover image */
-.hover-img {
-  opacity: 0;
-}
-
-/* Swap visibility when hovering over the container */
-.profile-container:hover .hover-img {
-  opacity: 1;
-}
-
-.profile-container:hover .default-img {
-  opacity: 0;
-}
