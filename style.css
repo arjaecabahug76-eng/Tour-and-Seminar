@@ -713,3 +713,65 @@ body.page-badges .orb-2 { background: #7c3aed; }
   .page-container { margin-top: 210px; }
   .top-nav-menu { flex-wrap: wrap; }
 }
+
+/* ==========================================
+   MINIMAL RIGHT-SIDE NAVIGATION
+   ========================================== */
+
+/* Main Container: Fixed to the right vertically */
+nav, .navbar, .nav-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+  background: rgba(15, 23, 42, 0.6); /* Semi-transparent background */
+  backdrop-filter: blur(10px);        /* Subtle glassmorphism effect */
+  padding: 15px 10px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Nav Links Styling */
+.nav-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover and Active States */
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: Icon-only minimal view on small mobile screens */
+@media (max-width: 768px) {
+  nav, .navbar, .nav-container {
+    right: 10px;
+    padding: 10px 6px;
+  }
+  
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+}
