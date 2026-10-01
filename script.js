@@ -9,7 +9,7 @@ function typeWriter() {
   if (element && typeIndex < typewriterText.length) {
     element.textContent += typewriterText.charAt(typeIndex);
     typeIndex++;
-    setTimeout(typeWriter, 40);
+    setTimeout(typeWriter, 45);
   }
 }
 
@@ -98,11 +98,6 @@ function closeProofModal() {
   modal.classList.remove('active');
   document.body.style.overflow = 'auto';
 }
-
-window.addEventListener('click', (e) => {
-  const modal = document.getElementById('proofModal');
-  if (e.target === modal) closeProofModal();
-});
 
 // Initial Setup Execution
 document.addEventListener('DOMContentLoaded', () => {
