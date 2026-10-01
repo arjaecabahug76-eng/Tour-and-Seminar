@@ -3,26 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arjae Cabahug | Portfolio</title>
+  <title>Arjae Cabahug | Technical Portfolio & Certifications</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="page-hero">
 
   <!-- Ambient Glow Effect Orbs -->
   <div class="ambient-glow orb-1"></div>
   <div class="ambient-glow orb-2"></div>
+  <div class="grid-overlay"></div>
 
   <!-- INTRO SPLASH OVERLAY -->
   <div id="intro-splash" class="intro-overlay">
     <div class="intro-content">
-      <div class="intro-badge">SYSTEM_READY // VERIFIED</div>
+      <div class="intro-badge">
+        <span class="pulse-dot"></span> SYSTEM_READY // PORTFOLIO_V2
+      </div>
       <h1 class="intro-title">ARJAE B. CABAHUG</h1>
-      <p class="intro-subtext"><span class="typewriter-text"></span><span class="cursor">|</span></p>
+      <p class="intro-subtext"><span class="typewriter-text"></span><span class="cursor">_</span></p>
       <button class="btn-launch" onclick="enterPortfolio()">
-        <span>LAUNCH PORTFOLIO</span>
+        <span>INITIALIZE PORTFOLIO</span>
         <div class="btn-glow"></div>
       </button>
     </div>
@@ -37,9 +40,12 @@
         <img src="3.png" alt="BSIT Logo" class="mini-logo">
       </div>
       <div class="branding-text">
-        <span class="brand-title">Partido State University</span>
-        <span class="brand-subtitle">Computational Sciences Department</span>
+        <span class="brand-title">PARTIDO STATE UNIVERSITY</span>
+        <span class="brand-subtitle">Department of Computational Sciences</span>
       </div>
+    </div>
+    <div class="system-status">
+      <span class="status-indicator"></span> ONLINE
     </div>
   </header>
 
@@ -48,18 +54,22 @@
     <button class="nav-link active" onclick="switchPage('hero')" data-page="hero">
       <span class="nav-icon">01</span>
       <span class="nav-label">Profile</span>
+      <div class="nav-indicator"></div>
     </button>
     <button class="nav-link" onclick="switchPage('webinars')" data-page="webinars">
       <span class="nav-icon">02</span>
       <span class="nav-label">Seminars</span>
+      <div class="nav-indicator"></div>
     </button>
     <button class="nav-link" onclick="switchPage('certificates')" data-page="certificates">
       <span class="nav-icon">03</span>
       <span class="nav-label">Certificates</span>
+      <div class="nav-indicator"></div>
     </button>
     <button class="nav-link" onclick="switchPage('badges')" data-page="badges">
       <span class="nav-icon">04</span>
       <span class="nav-label">Badges</span>
+      <div class="nav-indicator"></div>
     </button>
   </nav>
 
@@ -70,31 +80,59 @@
     <section class="page-section active" id="page-hero">
       <div class="hero-layout">
         <div class="hero-card">
-          <h1 class="profile-name animate-element">Arjae B. Cabahug</h1>
+          <div class="hero-badge">
+            <span class="badge-dot"></span> ACADEMIC_PROFILE
+          </div>
+          <h1 class="profile-name">Arjae B. Cabahug</h1>
           
-          <div class="academic-details animate-element">
+          <div class="academic-details">
             <div class="detail-item">
-              <span class="detail-label">COURSE</span>
+              <span class="detail-label">// DEGREE PROGRAM</span>
               <span class="detail-value">Bachelor of Science in Information Technology</span>
             </div>
-            <div class="detail-item">
-              <span class="detail-label">SECTION</span>
-              <span class="detail-value">4E</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">SUBJECT</span>
-              <span class="detail-value">Seminars and Tours</span>
+            <div class="detail-grid-row">
+              <div class="detail-item">
+                <span class="detail-label">// SECTION</span>
+                <span class="detail-value">4E</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">// COURSE SUBJECT</span>
+                <span class="detail-value">Seminars and Tours</span>
+              </div>
             </div>
           </div>
 
-          <div class="hero-actions animate-element">
-            <button class="btn-primary" onclick="switchPage('webinars')">Explore Seminars &rarr;</button>
+          <div class="hero-stats">
+            <div class="stat-box">
+              <span class="stat-number">08</span>
+              <span class="stat-label">Certifications</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">07</span>
+              <span class="stat-label">Badges</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-number">37+</span>
+              <span class="stat-label">Total Hours</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="switchPage('webinars')">
+              <span>Explore Seminars</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
           </div>
         </div>
 
-        <div class="profile-avatar-frame animate-element">
-          <img src="Arjae.jpg" alt="Arjae Cabahug" class="profile-img">
-          <div class="avatar-shimmer"></div>
+        <div class="profile-avatar-wrapper">
+          <div class="avatar-glow-ring"></div>
+          <div class="profile-avatar-frame">
+            <img src="Arjae.jpg" alt="Arjae Cabahug" class="profile-img">
+            <div class="avatar-shimmer"></div>
+            <div class="avatar-scanline"></div>
+          </div>
+          <div class="avatar-tag">ID: 2026-BSIT-4E</div>
         </div>
       </div>
     </section>
@@ -102,28 +140,29 @@
     <!-- PAGE 2: SEMINARS & WEBINARS -->
     <section class="page-section" id="page-webinars">
       <div class="section-header">
+        <div class="header-tag">// TRAINING_LOGS</div>
         <h2 class="section-heading">Seminars & Webinars</h2>
-        <p class="section-subheading">Documented training sessions and technical webinars.</p>
+        <p class="section-subheading">Documented technical training sessions and professional development workshops.</p>
       </div>
 
       <!-- Seminar 1 -->
       <article class="seminar-slide active" data-slide="1">
         <div class="slide-top">
-          <span class="code-tag">seminar_01</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_01 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
         <h3 class="slide-title">INTRODUCTION TO CYBERSECURITY</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">September 7, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">6 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">September 7, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">6 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>An essential field of study focused on protecting systems, networks, devices, and data from unauthorized access, cyberattacks, and digital threats.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>Cybersecurity & Threat Landscape: Impact of cyber threats on global infrastructure.</li>
             <li>Types of Attacks: Common attack vectors, malware types, and social engineering.</li>
@@ -131,29 +170,29 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['4.png', '5.png', '6.png'])">[ View Proof &rarr; ]</button>
-          <a href="Introduction_to_Cybersecurity_certificate_abcabahug645-pbox-parsu-edu-ph_80cce5ad-ac02-4301-94d3-0eb5a3370451.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['4.png', '5.png', '6.png'])">View Proof Materials</button>
+          <a href="Introduction_to_Cybersecurity_certificate_abcabahug645-pbox-parsu-edu-ph_80cce5ad-ac02-4301-94d3-0eb5a3370451.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
       <!-- Seminar 2 -->
       <article class="seminar-slide" data-slide="2">
         <div class="slide-top">
-          <span class="code-tag">seminar_02</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_02 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
         <h3 class="slide-title">COMPUTER HARDWARE BASICS</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">September 8, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">6 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">September 8, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">6 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>Covers fundamental concepts of physical computer components, system architecture, hardware identification, and essential maintenance practices.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>Core Hardware Architecture: Key internal components including CPUs, RAM, and storage.</li>
             <li>Troubleshooting: Essential diagnostic procedures and safety protocols.</li>
@@ -161,29 +200,29 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['7.png', '8.png', '9.png'])">[ View Proof &rarr; ]</button>
-          <a href="ComputerHardwareBasicsUpdate20260908-20-a9uoet.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['7.png', '8.png', '9.png'])">View Proof Materials</button>
+          <a href="ComputerHardwareBasicsUpdate20260908-20-a9uoet.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
       <!-- Seminar 3 -->
       <article class="seminar-slide" data-slide="3">
         <div class="slide-top">
-          <span class="code-tag">seminar_03</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_03 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
         <h3 class="slide-title">INTRODUCTION TO MODERN AI</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">September 9, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">6 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">September 9, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">6 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>Validates fundamental knowledge of modern artificial intelligence, machine learning principles, and generative model application.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>AI Foundations: Neural model basics and generative vs non-generative architectures.</li>
             <li>Prompt Engineering: Structuring effective prompts for conversational AI models.</li>
@@ -191,29 +230,29 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['10.png', '11.png', '12.png'])">[ View Proof &rarr; ]</button>
-          <a href="IntrotoModernAIUpdate20260909-20-ah274w.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['10.png', '11.png', '12.png'])">View Proof Materials</button>
+          <a href="IntrotoModernAIUpdate20260909-20-ah274w.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
       <!-- Seminar 4 -->
       <article class="seminar-slide" data-slide="4">
         <div class="slide-top">
-          <span class="code-tag">seminar_04</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_04 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
         <h3 class="slide-title">DIGITAL AWARENESS</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">September 9, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">6 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">September 9, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">6 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>Proficiency in digital tools, operating systems, digital safety, search navigation, and personal data protection.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>Digital Tools: Practical knowledge of software and OS file management.</li>
             <li>Online Safety: Password security and PII protection protocols.</li>
@@ -221,29 +260,29 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['13.png', '14.png', '15.png'])">[ View Proof &rarr; ]</button>
-          <a href="Digital_Awareness_certificate_abcabahug645-pbox-parsu-edu-ph_10d2556a-0a79-431f-8782-5b87404654ea.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['13.png', '14.png', '15.png'])">View Proof Materials</button>
+          <a href="Digital_Awareness_certificate_abcabahug645-pbox-parsu-edu-ph_10d2556a-0a79-431f-8782-5b87404654ea.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
       <!-- Seminar 5 -->
       <article class="seminar-slide" data-slide="5">
         <div class="slide-top">
-          <span class="code-tag">seminar_05</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_05 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
-        <h3 class="slide-title">Introduction to Greenhouse Gas Accounting for IT</h3>
+        <h3 class="slide-title">INTRODUCTION TO GREENHOUSE GAS ACCOUNTING FOR IT</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">September 9, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">3 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">September 9, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">3 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>Measuring, tracking, and reporting carbon emissions generated by IT infrastructure under GHG Protocol standards.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>GHG Protocol: Categorizing IT carbon footprints into Scope 1, 2, and 3 emissions.</li>
             <li>Sustainable IT: Energy metrics and data center power efficiency strategies.</li>
@@ -251,29 +290,29 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['16.png', '17.png', '18.png'])">[ View Proof &rarr; ]</button>
-          <a href="IntrotoGreenhouseGasAccountingv120260909-20-s0sk9t.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['16.png', '17.png', '18.png'])">View Proof Materials</button>
+          <a href="IntrotoGreenhouseGasAccountingv120260909-20-s0sk9t.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
       <!-- Seminar 6 -->
       <article class="seminar-slide" data-slide="6">
         <div class="slide-top">
-          <span class="code-tag">seminar_06</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_06 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
-        <h3 class="slide-title">IT Customer Support Basics</h3>
+        <h3 class="slide-title">IT CUSTOMER SUPPORT BASICS</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">November 9, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">4 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">November 9, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">4 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>Core skills in entry-level tech support, ticketing operations, diagnostic workflows, and communication.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>Client Communication: Professional soft skills and active user communication.</li>
             <li>Diagnostics: Systematic technical problem isolation and troubleshooting.</li>
@@ -281,29 +320,29 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['19.png', '20.png', '21.png'])">[ View Proof &rarr; ]</button>
-          <a href="IT_Customer_Support_Basics_certificate_abcabahug645-pbox-parsu-edu-ph_810dd2ff-1a22-4ccb-baac-a3593f8aee52.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['19.png', '20.png', '21.png'])">View Proof Materials</button>
+          <a href="IT_Customer_Support_Basics_certificate_abcabahug645-pbox-parsu-edu-ph_810dd2ff-1a22-4ccb-baac-a3593f8aee52.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
       <!-- Seminar 7 -->
       <article class="seminar-slide" data-slide="7">
         <div class="slide-top">
-          <span class="code-tag">seminar_07</span>
-          <span class="status-badge completed">Done</span>
+          <span class="code-tag">[ SEMINAR_07 ]</span>
+          <span class="status-badge completed"><span class="pulse-dot"></span> Completed</span>
         </div>
-        <h3 class="slide-title">Create Digital Content, Communicate and Collaborate Online</h3>
+        <h3 class="slide-title">CREATE DIGITAL CONTENT, COMMUNICATE AND COLLABORATE ONLINE</h3>
         <div class="slide-meta-strip">
-          <div class="meta-col"><span class="label">date</span><span class="val">September 11, 2026</span></div>
-          <div class="meta-col"><span class="label">hours</span><span class="val">6 hours</span></div>
-          <div class="meta-col"><span class="label">organizer</span><span class="val">Cisco NETWORKING ACADEMY</span></div>
+          <div class="meta-col"><span class="label">DATE</span><span class="val">September 11, 2026</span></div>
+          <div class="meta-col"><span class="label">DURATION</span><span class="val">6 hours</span></div>
+          <div class="meta-col"><span class="label">ORGANIZER</span><span class="val">Cisco Networking Academy</span></div>
         </div>
         <div class="slide-block">
-          <span class="block-label">description</span>
+          <span class="block-label">// DESCRIPTION</span>
           <p>Proficiency in digital content creation, cloud workspace collaboration, and modern web communications.</p>
         </div>
         <div class="slide-block">
-          <span class="block-label">learnings</span>
+          <span class="block-label">// KEY LEARNINGS</span>
           <ul class="learning-list">
             <li>Content Creation: Developing and formatting digital assets using modern tools.</li>
             <li>Collaboration: Cloud platforms and team communication workflows.</li>
@@ -311,11 +350,12 @@
           </ul>
         </div>
         <div class="action-buttons-group">
-          <button type="button" class="btn-proof" onclick="openProofModal(['22.png', '23.png', '24.png'])">[ View Proof &rarr; ]</button>
-          <a href="CreateDigitalContentUpdate20260911-20-hhxwdc.pdf" target="_blank" class="btn-certificate">[ Certificate &rarr; ]</a>
+          <button type="button" class="btn-proof" onclick="openProofModal(['22.png', '23.png', '24.png'])">View Proof Materials</button>
+          <a href="CreateDigitalContentUpdate20260911-20-hhxwdc.pdf" target="_blank" class="btn-certificate">Open Certificate PDF</a>
         </div>
       </article>
 
+      <!-- Slider Controls -->
       <div class="slider-controls">
         <button class="btn-nav" onclick="changeSlide(-1)">&larr; Previous</button>
         <div class="slide-counter">
@@ -328,165 +368,280 @@
     <!-- PAGE 3: CERTIFICATES GRID LAYOUT -->
     <section class="page-section" id="page-certificates">
       <div class="section-header">
+        <div class="header-tag">// VERIFIED_CREDENTIALS</div>
         <h2 class="section-heading">Earned Certificates</h2>
-        <p class="section-subheading">Verified digital documentation and completion certificates.</p>
+        <p class="section-subheading">Verified digital documentation and course completion credentials.</p>
       </div>
 
       <div class="gallery-grid">
+        <!-- Cert 1 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_01</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="Introduction_to_Cybersecurity_certificate_abcabahug645-pbox-parsu-edu-ph_80cce5ad-ac02-4301-94d3-0eb5a3370451.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_01</span>
             <h3 class="card-title">Introduction to Cybersecurity</h3>
-            <a href="Introduction_to_Cybersecurity_certificate_abcabahug645-pbox-parsu-edu-ph_80cce5ad-ac02-4301-94d3-0eb5a3370451.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="Introduction_to_Cybersecurity_certificate_abcabahug645-pbox-parsu-edu-ph_80cce5ad-ac02-4301-94d3-0eb5a3370451.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
 
+        <!-- Cert 2 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_02</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="ComputerHardwareBasicsUpdate20260908-20-a9uoet.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_02</span>
             <h3 class="card-title">Computer Hardware Basics</h3>
-            <a href="ComputerHardwareBasicsUpdate20260908-20-a9uoet.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="ComputerHardwareBasicsUpdate20260908-20-a9uoet.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
 
+        <!-- Cert 3 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_03</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="IntrotoModernAIUpdate20260909-20-ah274w.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_03</span>
             <h3 class="card-title">Introduction to Modern AI</h3>
-            <a href="IntrotoModernAIUpdate20260909-20-ah274w.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="IntrotoModernAIUpdate20260909-20-ah274w.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
 
+        <!-- Cert 4 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_04</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="Digital_Awareness_certificate_abcabahug645-pbox-parsu-edu-ph_10d2556a-0a79-431f-8782-5b87404654ea.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_04</span>
             <h3 class="card-title">Digital Awareness</h3>
-            <a href="Digital_Awareness_certificate_abcabahug645-pbox-parsu-edu-ph_10d2556a-0a79-431f-8782-5b87404654ea.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="Digital_Awareness_certificate_abcabahug645-pbox-parsu-edu-ph_10d2556a-0a79-431f-8782-5b87404654ea.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
 
+        <!-- Cert 5 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_05</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="IntrotoGreenhouseGasAccountingv120260909-20-s0sk9t.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_05</span>
             <h3 class="card-title">GHG Accounting for IT</h3>
-            <a href="IntrotoGreenhouseGasAccountingv120260909-20-s0sk9t.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="IntrotoGreenhouseGasAccountingv120260909-20-s0sk9t.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
 
+        <!-- Cert 6 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_06</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="IT_Customer_Support_Basics_certificate_abcabahug645-pbox-parsu-edu-ph_810dd2ff-1a22-4ccb-baac-a3593f8aee52.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_06</span>
             <h3 class="card-title">IT Customer Support Basics</h3>
-            <a href="IT_Customer_Support_Basics_certificate_abcabahug645-pbox-parsu-edu-ph_810dd2ff-1a22-4ccb-baac-a3593f8aee52.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="IT_Customer_Support_Basics_certificate_abcabahug645-pbox-parsu-edu-ph_810dd2ff-1a22-4ccb-baac-a3593f8aee52.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
 
+        <!-- Cert 7 -->
         <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_07</span>
+            <span class="card-status">VERIFIED</span>
+          </div>
           <div class="card-preview">
             <embed src="CreateDigitalContentUpdate20260911-20-hhxwdc.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">cert_07</span>
             <h3 class="card-title">Create Digital Content & Collaborate</h3>
-            <a href="CreateDigitalContentUpdate20260911-20-hhxwdc.pdf" target="_blank" class="btn-action">Open Document &rarr;</a>
+            <a href="CreateDigitalContentUpdate20260911-20-hhxwdc.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
           </div>
         </div>
+
+        <!-- NEWLY ADDED SLIDE: Cert 8 -->
+        <div class="grid-card cert-card">
+          <div class="card-header">
+            <span class="code-tag">CERT_08</span>
+            <span class="card-status">NEW</span>
+          </div>
+          <div class="card-preview">
+            <embed src="certificate_08.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" class="pdf-embed">
+            <div class="preview-overlay">
+              <span class="overlay-text">Click below to open</span>
+            </div>
+          </div>
+          <div class="card-meta">
+            <h3 class="card-title">Advanced Network & Systems Management</h3>
+            <a href="certificate_08.pdf" target="_blank" class="btn-action">
+              <span>Open Document</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- PAGE 4: BADGES GRID LAYOUT -->
     <section class="page-section" id="page-badges">
       <div class="section-header">
+        <div class="header-tag">// DIGITAL_BADGES</div>
         <h2 class="section-heading">NetAcad Badges</h2>
         <p class="section-subheading">Verified digital badges issued by Cisco Networking Academy.</p>
       </div>
 
       <div class="gallery-grid badges-grid">
+        <!-- Badge 1 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="introduction-to-cybersecurity.png" alt="Introduction to Cybersecurity">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_01</span>
+            <span class="code-tag">BADGE_01</span>
             <h3 class="card-title">Introduction to Cybersecurity</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
 
+        <!-- Badge 2 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="computer-hardware-basics.png" alt="Computer Hardware Basics">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_02</span>
+            <span class="code-tag">BADGE_02</span>
             <h3 class="card-title">Computer Hardware Basics</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
 
+        <!-- Badge 3 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="introduction-to-modern-ai.png" alt="Introduction to Modern AI">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_03</span>
+            <span class="code-tag">BADGE_03</span>
             <h3 class="card-title">Introduction to Modern AI</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
 
+        <!-- Badge 4 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="digital-awareness.png" alt="Digital Awareness">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_04</span>
+            <span class="code-tag">BADGE_04</span>
             <h3 class="card-title">Digital Awareness</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
 
+        <!-- Badge 5 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="introduction-to-greenhouse-gas-accounting-for-it.png" alt="GHG Accounting for IT">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_05</span>
+            <span class="code-tag">BADGE_05</span>
             <h3 class="card-title">GHG Accounting for IT</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
 
+        <!-- Badge 6 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="it-customer-support-basics.png" alt="IT Customer Support Basics">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_06</span>
+            <span class="code-tag">BADGE_06</span>
             <h3 class="card-title">IT Customer Support Basics</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
 
+        <!-- Badge 7 -->
         <div class="grid-card badge-card">
           <div class="badge-icon-frame">
             <img src="create-digital-content-communicate-and-collaborate-.png" alt="Create Digital Content">
+            <div class="badge-glow"></div>
           </div>
           <div class="card-meta">
-            <span class="code-tag">badge_07</span>
+            <span class="code-tag">BADGE_07</span>
             <h3 class="card-title">Digital Content & Collaboration</h3>
+            <span class="issuer-label">Cisco Networking Academy</span>
           </div>
         </div>
       </div>
@@ -496,8 +651,12 @@
 
   <!-- Proof Gallery Lightbox Modal -->
   <div id="proofModal" class="proof-modal">
-    <span class="modal-close" onclick="closeProofModal()">&times;</span>
+    <div class="modal-backdrop" onclick="closeProofModal()"></div>
     <div class="modal-content">
+      <div class="modal-header">
+        <span class="modal-title">// VERIFICATION_PROOFS</span>
+        <button class="modal-close" onclick="closeProofModal()">&times;</button>
+      </div>
       <div id="proofGallery" class="gallery-container"></div>
     </div>
   </div>
